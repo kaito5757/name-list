@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 const Sample = (): JSX.Element => {
   return (
     <div>
-      <Button children="ボタン"></Button>
+      <Button>ボタン</Button>
     </div>
   );
 };
