@@ -244,7 +244,6 @@ const userInfoList: userInfo[] = [
 const Home = () => {
   const [id, setId] = useState(0);
   const handleChange = (id: number) => {
-    console.log(id);
     setId(id);
   };
 
