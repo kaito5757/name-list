@@ -37,7 +37,7 @@ const css: CssTypes = {
   },
 };
 
-const GlobalHeader = (props: GlobalHeaderProps) => {
+export default function GlobalHeader(props: GlobalHeaderProps) {
   return (
     <Box component="div" sx={css.box}>
       <AppBar position="static">
@@ -59,6 +59,4 @@ const GlobalHeader = (props: GlobalHeaderProps) => {
       </AppBar>
     </Box>
   );
-};
-
-export default GlobalHeader;
+}

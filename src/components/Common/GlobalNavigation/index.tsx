@@ -10,7 +10,7 @@ interface GlobalNavigationProps extends React.ComponentPropsWithoutRef<"div"> {}
 type CssTypes = {};
 const css: CssTypes = {};
 
-const GlobalNavigation = (props: GlobalNavigationProps) => {
+export default function GlobalNavigation(props: GlobalNavigationProps) {
   return (
     <Box component="div">
       <BottomNavigation showLabels>
@@ -20,5 +20,4 @@ const GlobalNavigation = (props: GlobalNavigationProps) => {
       </BottomNavigation>
     </Box>
   );
-};
-export default GlobalNavigation;
+}

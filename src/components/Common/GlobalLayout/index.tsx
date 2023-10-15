@@ -21,7 +21,7 @@ const css: CssTypes = {
   },
 };
 
-const GlobalLayout = (props: GlobalLayoutProps) => {
+export default function GlobalLayout(props: GlobalLayoutProps) {
   return (
     <Box component="div" sx={css.layoutBox}>
       <GlobalHeader logoName="NAME-LIST" listNameText="名簿一覧" />
@@ -31,6 +31,4 @@ const GlobalLayout = (props: GlobalLayoutProps) => {
       <GlobalNavigation />
     </Box>
   );
-};
-
-export default GlobalLayout;
+}

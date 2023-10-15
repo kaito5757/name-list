@@ -27,7 +27,7 @@ const css: CssTypes = {
   },
 };
 
-const TopComboBox = (props: TopComboBoxProps) => {
+export default function TopComboBox(props: TopComboBoxProps) {
   const [id, setId] = useState<number>(0);
   const filterOptions = createFilterOptions({
     stringify: (option: TopComboBoxSelectOption) =>
@@ -62,5 +62,4 @@ const TopComboBox = (props: TopComboBoxProps) => {
       />
     </Box>
   );
-};
-export default TopComboBox;
+}

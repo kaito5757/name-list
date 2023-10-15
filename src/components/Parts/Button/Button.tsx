@@ -4,10 +4,10 @@ type ButtonProp = {
   children: string;
 };
 
-export const Button = (props: ButtonProp): JSX.Element => {
+export default function Button(props: ButtonProp) {
   return (
     <button type="button" className={styles.red}>
       {props.children}
     </button>
   );
-};
+}

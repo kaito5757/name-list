@@ -44,7 +44,7 @@ const convertItemList = (userItem: userItem): itemInfo[] => {
   return itemListAry;
 };
 
-const TopCard = (props: TopCardProps) => {
+export default function TopCard(props: TopCardProps) {
   return props.userInfo ? (
     <Box component="div" sx={css.box}>
       <ReftCard
@@ -63,6 +63,4 @@ const TopCard = (props: TopCardProps) => {
   ) : (
     <Box sx={css.emptyBox}></Box>
   );
-};
-
-export default TopCard;
+}

@@ -91,7 +91,7 @@ const css: CssTypes = {
   },
 };
 
-const LeftCard = (props: LeftCardProps) => {
+export default function LeftCard(props: LeftCardProps) {
   return (
     <Card>
       <Box component="div" sx={css.box}>
@@ -114,6 +114,4 @@ const LeftCard = (props: LeftCardProps) => {
       </Box>
     </Card>
   );
-};
-
-export default LeftCard;
+}

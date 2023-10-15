@@ -20,12 +20,10 @@ const css: CssTypes = {
   },
 };
 
-const TopCard = (props: CardProps) => {
+export default function TopCard(props: CardProps) {
   return (
     <Box component="div" sx={css.box}>
       {props.children}
     </Box>
   );
-};
-
-export default TopCard;
+}

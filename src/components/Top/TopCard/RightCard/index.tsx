@@ -46,7 +46,7 @@ const css: CssTypes = {
   },
 };
 
-const TopRightCard = (props: RightCardProps) => {
+export default function TopRightCard(props: RightCardProps) {
   const [open, setOpen] = useState(false);
   const handleClick = (text: string) => {
     setOpen(true);
@@ -83,6 +83,4 @@ const TopRightCard = (props: RightCardProps) => {
       />
     </Card>
   );
-};
-
-export default TopRightCard;
+}
