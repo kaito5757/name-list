@@ -1,17 +1,17 @@
-import { render, screen } from '@testing-library/react';
-import { Button } from '.';
-import '@testing-library/jest-dom';
+import { render, screen } from "@testing-library/react";
+import { Button } from "./Button";
+import "@testing-library/jest-dom";
 
-describe('Button', () => {
-  const buttonText = "ボタン"
+describe("Button", () => {
+  const buttonText = "ボタン";
   let buttonNode: HTMLButtonElement;
 
   beforeEach(() => {
-    render(<Button>{ buttonText }</Button>);
-    buttonNode = screen.getByRole('button');
+    render(<Button>{buttonText}</Button>);
+    buttonNode = screen.getByRole("button");
   });
 
-  it('ボタンテキストが存在しているかチェック', () => {
+  it("ボタンテキストが存在しているかチェック", () => {
     expect(buttonNode).toHaveTextContent(buttonText);
   });
 });

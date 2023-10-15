@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import { Button } from "../components/atoms/Button/Button";
 
 const Sample = (): JSX.Element => {
   return (
