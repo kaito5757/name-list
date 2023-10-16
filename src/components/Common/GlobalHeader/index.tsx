@@ -52,7 +52,7 @@ export default function GlobalHeader(props: GlobalHeaderProps) {
           >
             {props.logoName}
           </Typography>
-          <Button color="inherit" href="/api/hello">
+          <Button color="inherit" href="/name-list">
             {props.listNameText}
           </Button>
         </Toolbar>

@@ -1,4 +1,4 @@
-import { sampleUserInfo } from "@/contexts/sample";
+import { sampleUserInfo } from "../../../../contexts/sample";
 import type { Meta, StoryObj } from "@storybook/react";
 import LeftCard from ".";
 

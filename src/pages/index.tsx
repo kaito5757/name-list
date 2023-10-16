@@ -4,6 +4,7 @@ import TopComboBox from "@/components/Top/TopComboBox";
 import type { TopComboBoxSelectOption, userInfo } from "@types";
 import { useState } from "react";
 import SampleImage from "../../public/Sample/150x150.png";
+import { NextPage } from "next";
 
 const topComboBoxSelectOptions: TopComboBoxSelectOption[] = [
   {
@@ -241,7 +242,7 @@ const userInfoList: userInfo[] = [
   },
 ];
 
-const Home = () => {
+export default function Home() {
   const [id, setId] = useState(0);
   const handleChange = (id: number) => {
     setId(id);
@@ -258,6 +259,4 @@ const Home = () => {
       <TopCard userInfo={userInfoList.find((info) => info.id == id)} />
     </GlobalLayout>
   );
-};
-
-export default Home;
+}

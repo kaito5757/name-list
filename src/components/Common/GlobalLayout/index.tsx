@@ -1,5 +1,5 @@
-import GlobalHeader from "@/components/Common/GlobalHeader";
-import GlobalNavigation from "@/components/Common/GlobalNavigation";
+import GlobalHeader from "../../../components/Common/GlobalHeader";
+import GlobalNavigation from "../../../components/Common/GlobalNavigation";
 import { Box, SxProps, Theme } from "@mui/material";
 
 interface GlobalLayoutProps extends React.ComponentPropsWithoutRef<"div"> {}

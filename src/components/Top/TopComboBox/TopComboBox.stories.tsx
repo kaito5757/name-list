@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import TopComboBox from ".";
-import { SampleTopComboBoxSelectOptionAry } from "@/contexts/sample";
+import { SampleTopComboBoxSelectOptionAry } from "../../../contexts/sample";
 
 const meta = {
   title: "Components/TopTopComboBox",

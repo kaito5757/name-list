@@ -1,4 +1,4 @@
-import { sampleItemInfoAry } from "@/contexts/sample";
+import { sampleItemInfoAry } from "../../../../contexts/sample";
 import type { Meta, StoryObj } from "@storybook/react";
 import RightCard from ".";
 
