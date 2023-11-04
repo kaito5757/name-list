@@ -21,6 +21,11 @@
     "@mui/icons-material": "^5.14.12",
     "@mui/material": "^5.14.12",
     "@prisma/client": "^5.4.2",
+    "@tanstack/react-query": "^4.36.1",
+    "@trpc/client": "^10.43.1",
+    "@trpc/next": "^10.43.1",
+    "@trpc/react-query": "^10.43.1",
+    "@trpc/server": "^10.43.1",
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
@@ -35,8 +40,10 @@
     "react-dom": "18.2.0",
     "run": "^1.4.0",
     "sharp": "^0.32.6",
+    "superjson": "^2.2.0",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.4",
