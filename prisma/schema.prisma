@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                Int                  @id @default(autoincrement())
+  main_image_url    String   
+  full_name         String
+  full_name_kana    String
+  departments       DepartmentsOnUsers[]
+  teams             TeamsOnUsers[]
+  official_position String
+  occupation        String
+  mail_address      String
+  slack_name        String
+  created_at        DateTime             @default(now())
+  updated_at        DateTime             @updatedAt
+}
+
+model Department {
+  id         Int                  @id @default(autoincrement())
+  users      DepartmentsOnUsers[]
+  name       String
+  created_at DateTime             @default(now())
+  updated_at DateTime             @updatedAt
+}
+
+model DepartmentsOnUsers {
+  user_id       Int
+  user          User       @relation(fields: [user_id], references: [id])
+  department_id Int
+  department    Department @relation(fields: [department_id], references: [id])
+  assigned_at   DateTime   @default(now())
+  assigned_by   String
+
+  @@id([user_id, department_id])
+}
+
+model Team {
+  id         Int            @id @default(autoincrement())
+  users      TeamsOnUsers[]
+  name       String
+  created_at DateTime       @default(now())
+  updated_at DateTime       @updatedAt
+}
+
+model TeamsOnUsers {
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  team_id     Int
+  team        Team     @relation(fields: [team_id], references: [id])
+  assigned_at DateTime @default(now())
+  assigned_by String
+
+  @@id([user_id, team_id])
+}
