@@ -1,7 +1,7 @@
 import GlobalLayout from "@/components/Common/GlobalLayout";
 import TopCard from "@/components/Top/TopCard";
 import TopComboBox from "@/components/Top/TopComboBox";
-import type { TopComboBoxSelectOption, userInfo } from "@types";
+import type { TopComboBoxSelectOption, userInfo } from "@/types";
 import { useState } from "react";
 import SampleImage from "../../public/Sample/150x150.png";
 import { NextPage } from "next";

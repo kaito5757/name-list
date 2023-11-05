@@ -1,5 +1,5 @@
 import { Box, Snackbar, SxProps, Theme } from "@mui/material";
-import { itemInfo } from "@types";
+import { itemInfo } from "@/types";
 import { useState } from "react";
 import Card from "../../../Parts/Card";
 

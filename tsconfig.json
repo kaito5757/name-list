@@ -14,8 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@types": ["./types"]
+      "@/*": ["./src/*"]
     },
     "jsxImportSource": "@emotion/react"
   },

@@ -1,7 +1,7 @@
 import { userItemInfo } from "../../../contexts/userInfo";
 import { SxProps, Theme } from "@mui/material";
 import Box from "@mui/material/Box";
-import { itemInfo, userInfo, userItem } from "@types";
+import { itemInfo, userInfo, userItem } from "@/types";
 import ReftCard from "./LeftCard";
 import RightCard from "./RightCard";
 
