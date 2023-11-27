@@ -29,6 +29,7 @@ model Department {
   id         Int                  @id @default(autoincrement())
   users      DepartmentsOnUsers[]
   name       String
+  order      Int
   created_at DateTime             @default(now())
   updated_at DateTime             @updatedAt
 }
@@ -48,6 +49,7 @@ model Team {
   id         Int            @id @default(autoincrement())
   users      TeamsOnUsers[]
   name       String
+  order      Int
   created_at DateTime       @default(now())
   updated_at DateTime       @updatedAt
 }
