@@ -1,3 +1,8 @@
+export * from "./department";
+export * from "./dialog";
+export * from "./link";
+export * from "./team";
+
 export type TopComboBoxSelectOption = {
   id: number;
   label: string;

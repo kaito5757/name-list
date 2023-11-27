@@ -2,20 +2,22 @@ import { router, publicProcedure } from "@/server/trpc";
 import { prisma } from "@/server/prisma";
 import { z } from "zod";
 
+const departmentObj = z.object({
+  id: z.number(),
+  name: z.optional(z.string()),
+  order: z.optional(z.number()),
+});
+
 export const departmentRouter = router({
-  findDepartmentAll: publicProcedure.query(async () => {
-    return await prisma.department.findMany();
+  getAllDepartments: publicProcedure.query(async () => {
+    return await getDepartmentsAsc();
   }),
-  findDepartment: publicProcedure
-    .input(
-      z.object({
-        department_id: z.number(),
-      }),
-    )
+  getDepartmentById: publicProcedure
+    .input(departmentObj)
     .query(async ({ input }) => {
       return await prisma.department.findUnique({
         where: {
-          id: input.department_id,
+          id: input.id,
         },
       });
     }),
@@ -29,37 +31,63 @@ export const departmentRouter = router({
       return await prisma.department.create({
         data: {
           name: input.name,
+          order: await prisma.department.count(),
         },
       });
     }),
-  updateDepartment: publicProcedure
-    .input(
-      z.object({
-        department_id: z.number(),
-        name: z.string(),
-      }),
-    )
+  updateDepartmentById: publicProcedure
+    .input(departmentObj)
     .mutation(async ({ input }) => {
       return await prisma.department.update({
         where: {
-          id: input.department_id,
+          id: input.id,
         },
         data: {
           name: input.name,
+          order: input.order,
         },
       });
     }),
-  deleteDepartment: publicProcedure
-    .input(
-      z.object({
-        department_id: z.number(),
-      }),
-    )
+  updateDepartmentsOrder: publicProcedure
+    .input(departmentObj.array())
     .mutation(async ({ input }) => {
-      return await prisma.department.delete({
+      return await updateOrder(input);
+    }),
+  deleteDepartmentById: publicProcedure
+    .input(departmentObj)
+    .mutation(async ({ input }) => {
+      await prisma.department.delete({
         where: {
-          id: input.department_id,
+          id: input.id,
         },
       });
+      const departments = await getDepartmentsAsc();
+      await updateOrder(departments);
     }),
 });
+
+const getDepartmentsAsc = async () => {
+  return await prisma.department.findMany({
+    orderBy: [
+      {
+        order: "asc",
+      },
+    ],
+  });
+};
+
+const updateOrder = async (input: z.infer<typeof departmentObj>[]) => {
+  const dataList = input.map((dept, index) => {
+    return {
+      where: {
+        id: dept.id,
+      },
+      data: {
+        order: index,
+      },
+    };
+  });
+  return await prisma.$transaction(
+    dataList.map((data) => prisma.department.update(data)),
+  );
+};

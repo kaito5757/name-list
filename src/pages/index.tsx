@@ -1,10 +1,9 @@
-import GlobalLayout from "@/components/Common/GlobalLayout";
-import TopCard from "@/components/Top/TopCard";
-import TopComboBox from "@/components/Top/TopComboBox";
+import TopCard from "@/components/pages/Top/TopCard";
+import TopComboBox from "@/components/pages/Top/TopComboBox";
+import GlobalLayout from "@/components/parts/common/GlobalLayout";
 import type { TopComboBoxSelectOption, userInfo } from "@/types";
 import { useState } from "react";
 import SampleImage from "../../public/Sample/150x150.png";
-import { NextPage } from "next";
 
 const topComboBoxSelectOptions: TopComboBoxSelectOption[] = [
   {
