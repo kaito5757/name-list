@@ -1,6 +1,6 @@
 import { nextLinkType } from "@/types";
-import GlobalHeader from "../../../../components/parts/common/GlobalHeader";
-import GlobalNavigation from "../../../../components/parts/common/GlobalNavigation";
+import GlobalHeader from "@/components/parts/common/GlobalHeader";
+import GlobalNavigation from "@/components/parts/common/GlobalNavigation";
 import { Box, SxProps, Theme } from "@mui/material";
 
 interface GlobalLayoutProps extends React.ComponentPropsWithoutRef<"div"> {}
