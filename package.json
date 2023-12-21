@@ -12,6 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest",
+    "postinstall": "prisma generate",
     "migrate-dev": "dotenv -e .env.development.local prisma migrate dev",
     "migrate-prod": "dotenv -e .env prisma migrate deploy"
   },
