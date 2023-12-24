@@ -41,8 +41,8 @@ export default function Department() {
     setBackdrop(false);
     setSnackbar(severity, message);
   };
-  const refetchDepartments = (severity: AlertColor, message: string) => {
-    departmentsQuery.refetch();
+  const refetchDepartments = async (severity: AlertColor, message: string) => {
+    await departmentsQuery.refetch();
     setBackdropAndSnackbar(severity, message);
   };
 
