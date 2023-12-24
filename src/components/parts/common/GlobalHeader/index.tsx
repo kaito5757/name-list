@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { memo } from "react";
 
 interface GlobalHeaderProps extends React.ComponentPropsWithoutRef<"div"> {
   logoName: string;
@@ -21,6 +22,7 @@ type CssTypes = {
 const css: CssTypes = {
   box: {
     flexGrow: 1,
+    marginBottom: "3rem",
   },
   adbIcon: {
     display: { xs: "none", md: "flex" },
@@ -38,7 +40,7 @@ const css: CssTypes = {
   },
 };
 
-export default function GlobalHeader(props: GlobalHeaderProps) {
+export default memo(function GlobalHeader(props: GlobalHeaderProps) {
   return (
     <Box component="div" sx={css.box}>
       <AppBar position="static">
@@ -65,4 +67,4 @@ export default function GlobalHeader(props: GlobalHeaderProps) {
       </AppBar>
     </Box>
   );
-}
+});

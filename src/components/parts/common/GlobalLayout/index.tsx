@@ -2,6 +2,9 @@ import { nextLinkType } from "@/types";
 import GlobalHeader from "@/components/parts/common/GlobalHeader";
 import GlobalNavigation from "@/components/parts/common/GlobalNavigation";
 import { Box, SxProps, Theme } from "@mui/material";
+import BasicSnackbar from "../../BasicSnackbar";
+import { memo } from "react";
+import BasicBackdrop from "../../BasicBackdrop";
 
 interface GlobalLayoutProps extends React.ComponentPropsWithoutRef<"div"> {}
 
@@ -33,14 +36,18 @@ const navLinks: nextLinkType[] = [
   },
 ];
 
-export default function GlobalLayout(props: GlobalLayoutProps) {
+export default memo(function GlobalLayout(props: GlobalLayoutProps) {
   return (
-    <Box component="div" sx={css.layoutBox}>
-      <GlobalHeader logoName="NAME-LIST" navLinks={navLinks} />
-      <Box component="div" sx={css.mainBox}>
-        {props.children}
+    <>
+      <Box component="div" sx={css.layoutBox}>
+        <GlobalHeader logoName="NAME-LIST" navLinks={navLinks} />
+        <Box component="div" sx={css.mainBox}>
+          {props.children}
+        </Box>
+        <GlobalNavigation />
       </Box>
-      <GlobalNavigation />
-    </Box>
+      <BasicBackdrop />
+      <BasicSnackbar />
+    </>
   );
-}
+});
