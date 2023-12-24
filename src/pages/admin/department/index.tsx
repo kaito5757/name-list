@@ -1,13 +1,12 @@
 import DepartmentCreateDialog from "@/components/pages/Department/DepartmentCreateDialog";
 import DepartmentTable from "@/components/pages/Department/DepartmentTable";
 import { useBasicBackdropStore } from "@/components/parts/BasicBackdrop";
-import BasicButtons from "@/components/parts/BasicButtons";
+import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton";
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
 import GlobalLayout from "@/components/parts/common/GlobalLayout";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import { Departments } from "@/types";
 import { trpc } from "@/utils/trpc";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Box, SxProps, Theme } from "@mui/material";
 import { AlertColor } from "@mui/material/Alert";
 import { useEffect, useState } from "react";
@@ -110,19 +109,7 @@ export default function Department() {
             updateDepartmentData={updateDepartmentData}
             deleteDepartmentData={deleteDepartmentData}
           />
-          <BasicButtons
-            btnInfoList={[
-              {
-                linkUrl: "/admin",
-                btnAttr: {
-                  variant: "outlined",
-                  size: "large",
-                  startIcon: <ArrowBackIcon />,
-                  children: "管理画面に戻る",
-                },
-              },
-            ]}
-          />
+          <ReturnAdminButton />
         </Box>
       </Box>
     </GlobalLayout>
