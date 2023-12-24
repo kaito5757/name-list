@@ -16,7 +16,7 @@ interface BasicDialogProps extends React.ComponentPropsWithoutRef<"div"> {
   onSubmitClick?: () => void;
 }
 
-export default function BasicDialog<T>(props: BasicDialogProps) {
+export default function BasicDialog(props: BasicDialogProps) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
