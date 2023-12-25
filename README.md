@@ -11,13 +11,13 @@ https://name-list.vercel.app
 現在所属している会社がSESがメインの会社で、「この人誰だっけ？」ということが多い。そこで気軽に検索できる名簿アプリを作成すれば、簡単に社員情報がわかりこの問題を解決できると思い作成。
 
 ### 技術スタック
-言語:TypeScript
-フレームワーク:  Next.js
-UIコンポーネントライブラリ: MUI
-CSS-in-JS: Emotion
-データベース: supabase
-静的解析ツール: ESLint
-コードフォーマッター: Prettier
-ORM: Prisma
-テスト: Jest
-その他: tRPC
+- 言語:TypeScript
+- フレームワーク:Next.js
+- UIコンポーネントライブラリ: MUI
+- CSS-in-JS: Emotion
+- データベース: supabase
+- 静的解析ツール: ESLint
+- コードフォーマッター: Prettier
+- ORM: Prisma
+- テスト: Jest
+- その他: tRPC
