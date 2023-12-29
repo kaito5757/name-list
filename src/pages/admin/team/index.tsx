@@ -1,4 +1,5 @@
 import TeamCreateDialog from "@/components/pages/Team/TeamCreateDialog";
+import TeamTable from "@/components/pages/Team/TeamTable";
 import { useBasicBackdropStore } from "@/components/parts/BasicBackdrop";
 import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton";
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
@@ -86,9 +87,13 @@ export default function Team() {
       <Box component="div" sx={css.teamContainer}>
         <Box component="div" sx={css.teamRow}>
           <TeamCreateDialog createTeamData={createTeamData} />
-          {teams?.map((team) => {
-            return <p key={team.id}>{team.name}</p>;
-          })}
+          <TeamTable
+            teams={teams}
+            setTeams={setTeams}
+            updateOrder={updateTeamOrder}
+            updateTeamData={updateTeamData}
+            deleteTeamData={deleteTeamData}
+          />
           <ReturnAdminButton />
         </Box>
       </Box>
