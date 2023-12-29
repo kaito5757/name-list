@@ -98,20 +98,18 @@ export default function Department() {
   };
 
   return (
-    <GlobalLayout>
-      <Box component="div" sx={css.departmentContainer}>
-        <Box component="div" sx={css.departmentRow}>
-          <DepartmentCreateDialog createDepartmentData={createDepartmentData} />
-          <DepartmentTable
-            departments={departments}
-            setDepartments={setDepartments}
-            updateOrder={updateDepartmentsOrder}
-            updateDepartmentData={updateDepartmentData}
-            deleteDepartmentData={deleteDepartmentData}
-          />
-          <ReturnAdminButton />
-        </Box>
+    <Box component="div" sx={css.departmentContainer}>
+      <Box component="div" sx={css.departmentRow}>
+        <DepartmentCreateDialog createDepartmentData={createDepartmentData} />
+        <DepartmentTable
+          departments={departments}
+          setDepartments={setDepartments}
+          updateOrder={updateDepartmentsOrder}
+          updateDepartmentData={updateDepartmentData}
+          deleteDepartmentData={deleteDepartmentData}
+        />
+        <ReturnAdminButton />
       </Box>
-    </GlobalLayout>
+    </Box>
   );
 }

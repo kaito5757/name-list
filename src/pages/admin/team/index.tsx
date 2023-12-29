@@ -83,20 +83,18 @@ export default function Team() {
   };
 
   return (
-    <GlobalLayout>
-      <Box component="div" sx={css.teamContainer}>
-        <Box component="div" sx={css.teamRow}>
-          <TeamCreateDialog createTeamData={createTeamData} />
-          <TeamTable
-            teams={teams}
-            setTeams={setTeams}
-            updateOrder={updateTeamOrder}
-            updateTeamData={updateTeamData}
-            deleteTeamData={deleteTeamData}
-          />
-          <ReturnAdminButton />
-        </Box>
+    <Box component="div" sx={css.teamContainer}>
+      <Box component="div" sx={css.teamRow}>
+        <TeamCreateDialog createTeamData={createTeamData} />
+        <TeamTable
+          teams={teams}
+          setTeams={setTeams}
+          updateOrder={updateTeamOrder}
+          updateTeamData={updateTeamData}
+          deleteTeamData={deleteTeamData}
+        />
+        <ReturnAdminButton />
       </Box>
-    </GlobalLayout>
+    </Box>
   );
 }

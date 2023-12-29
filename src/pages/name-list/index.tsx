@@ -1,5 +1,5 @@
-import GlobalLayout from "@/components/parts/common/GlobalLayout";
+import { Box } from "@mui/material";
 
 export default function NameList() {
-  return <GlobalLayout></GlobalLayout>;
+  return <Box></Box>;
 }

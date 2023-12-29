@@ -24,9 +24,5 @@ const adminList: adminItemType[] = [
 ];
 
 export default function Admin() {
-  return (
-    <GlobalLayout>
-      <AdminList adminItemAry={adminList} />
-    </GlobalLayout>
-  );
+  return <AdminList adminItemAry={adminList} />;
 }

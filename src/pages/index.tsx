@@ -1,7 +1,7 @@
 import TopCard from "@/components/pages/Top/TopCard";
 import TopComboBox from "@/components/pages/Top/TopComboBox";
-import GlobalLayout from "@/components/parts/common/GlobalLayout";
 import type { TopComboBoxSelectOption, userInfo } from "@/types";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import SampleImage from "../../public/Sample/150x150.png";
 
@@ -248,7 +248,7 @@ export default function Home() {
   };
 
   return (
-    <GlobalLayout>
+    <Box component="div">
       <TopComboBox
         selectOptions={topComboBoxSelectOptions}
         placeholderText="名前（漢字, カナ）、部署名、チーム名をで検索可能"
@@ -256,6 +256,6 @@ export default function Home() {
         handleChange={handleChange}
       />
       <TopCard userInfo={userInfoList.find((info) => info.id == id)} />
-    </GlobalLayout>
+    </Box>
   );
 }
