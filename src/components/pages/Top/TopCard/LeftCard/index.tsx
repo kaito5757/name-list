@@ -3,9 +3,10 @@ import { Interpolation } from "@emotion/serialize";
 import { SxProps, Theme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image, { StaticImageData } from "next/image";
+import { ComponentProps } from "react";
 import Card from "../../../../parts/Card";
 
-interface LeftCardProps extends React.ComponentPropsWithoutRef<"div"> {
+interface LeftCardProps extends ComponentProps<"div"> {
   imageSrc: StaticImageData;
   imageAlt: string;
   fullName: string;

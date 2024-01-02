@@ -2,9 +2,9 @@ import BasicDialog from "@/components/parts/BasicDialog";
 import { TeamFormSchemaType } from "@/components/schema/teamFormSchema";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DialogContentText } from "@mui/material";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentProps } from "react";
 
-interface TeamDeleteDialogProps extends ComponentPropsWithoutRef<"div"> {
+interface TeamDeleteDialogProps extends ComponentProps<"div"> {
   teamData: TeamFormSchemaType;
   onDeleteSubmitClick: () => void;
 }

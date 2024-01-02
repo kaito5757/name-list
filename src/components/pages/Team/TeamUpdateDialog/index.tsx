@@ -3,9 +3,9 @@ import FormDialog from "@/components/parts/FormDialog";
 import { TeamFormSchemaType } from "@/components/schema/teamFormSchema";
 import EditIcon from "@mui/icons-material/Edit";
 import { TextField } from "@mui/material";
-import { ComponentPropsWithoutRef, Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 
-interface TeamUpdateDialogProps extends ComponentPropsWithoutRef<"div"> {
+interface TeamUpdateDialogProps extends ComponentProps<"div"> {
   teamData: TeamFormSchemaType;
   onUpdateSubmitClick: (data: TeamFormSchemaType) => void;
 }

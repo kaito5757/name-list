@@ -1,9 +1,8 @@
-import GlobalLayout from "@/components/parts/common/GlobalLayout";
+import { adminItemType } from "@/components/pages/Admin/AdminItem";
+import AdminList from "@/components/pages/Admin/AdminList";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
 import GroupIcon from "@mui/icons-material/Group";
 import GroupsIcon from "@mui/icons-material/Groups";
-import Diversity3Icon from "@mui/icons-material/Diversity3";
-import AdminList from "@/components/pages/Admin/AdminList";
-import { adminItemType } from "@/components/pages/Admin/AdminItem";
 
 const adminList: adminItemType[] = [
   {

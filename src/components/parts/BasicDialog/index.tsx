@@ -6,9 +6,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import * as React from "react";
-import { Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 
-interface BasicDialogProps extends React.ComponentPropsWithoutRef<"div"> {
+interface BasicDialogProps extends ComponentProps<"div"> {
   dialogTriggerType: ButtonType | IconType;
   title: string;
   channelButtonText: string;

@@ -1,9 +1,9 @@
-import { Box, Snackbar, SxProps, Theme } from "@mui/material";
 import { itemInfo } from "@/types";
-import { useState } from "react";
+import { Box, Snackbar, SxProps, Theme } from "@mui/material";
+import { ComponentProps, useState } from "react";
 import Card from "../../../../parts/Card";
 
-interface RightCardProps extends React.ComponentPropsWithoutRef<"div"> {
+interface RightCardProps extends ComponentProps<"div"> {
   itemInfoAry: itemInfo[];
   snackbarMessage: string;
 }

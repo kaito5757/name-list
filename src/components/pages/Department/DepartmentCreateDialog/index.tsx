@@ -2,10 +2,9 @@ import { useDepartmentForm } from "@/components/hooks/useDepartmentForm";
 import FormDialog from "@/components/parts/FormDialog";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import { TextField } from "@mui/material";
-import { Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 
-interface DepartmentCreateDialogProps
-  extends React.ComponentPropsWithoutRef<"div"> {
+interface DepartmentCreateDialogProps extends ComponentProps<"div"> {
   createDepartmentData: (data: DepartmentFormSchemaType) => void;
 }
 

@@ -1,11 +1,12 @@
 import { userItemInfo } from "@/constants/userInfo";
+import { itemInfo, userInfo, userItem } from "@/types";
 import { SxProps, Theme } from "@mui/material";
 import Box from "@mui/material/Box";
-import { itemInfo, userInfo, userItem } from "@/types";
+import { ComponentProps } from "react";
 import ReftCard from "./LeftCard/index";
 import RightCard from "./RightCard";
 
-interface TopCardProps extends React.ComponentPropsWithoutRef<"div"> {
+interface TopCardProps extends ComponentProps<"div"> {
   userInfo: userInfo | undefined;
 }
 

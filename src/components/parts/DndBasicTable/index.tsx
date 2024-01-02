@@ -9,9 +9,15 @@ import {
   TableRow,
   Theme,
 } from "@mui/material";
-import { Dispatch, DragEvent, SetStateAction, useState } from "react";
+import {
+  ComponentProps,
+  Dispatch,
+  DragEvent,
+  SetStateAction,
+  useState,
+} from "react";
 
-interface DndBasicTableProps<T> extends React.ComponentPropsWithoutRef<"div"> {
+interface DndBasicTableProps<T> extends ComponentProps<"div"> {
   tableHeadCollAry: TableCollType[];
   tableBodyRowAry: TableRowType[];
   setTableData: Dispatch<SetStateAction<T>>;

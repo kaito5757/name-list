@@ -3,10 +3,9 @@ import FormDialog from "@/components/parts/FormDialog";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import EditIcon from "@mui/icons-material/Edit";
 import { TextField } from "@mui/material";
-import { Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 
-interface DepartmentUpdateDialogProps
-  extends React.ComponentPropsWithoutRef<"div"> {
+interface DepartmentUpdateDialogProps extends ComponentProps<"div"> {
   departmentData: DepartmentFormSchemaType;
   onUpdateSubmitClick: (data: DepartmentFormSchemaType) => void;
 }

@@ -1,7 +1,8 @@
 import { SxProps, Theme } from "@mui/material";
 import Box from "@mui/material/Box";
+import { ComponentProps } from "react";
 
-interface CardProps extends React.ComponentPropsWithoutRef<"div"> {}
+interface CardProps extends ComponentProps<"div"> {}
 
 type CssTypes = {
   box: SxProps<Theme>;

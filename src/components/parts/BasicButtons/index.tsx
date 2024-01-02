@@ -1,8 +1,9 @@
 import { Box, Button, SxProps, Theme } from "@mui/material";
 import { ButtonOwnProps } from "@mui/material/Button/Button";
 import Link from "next/link";
+import { ComponentProps } from "react";
 
-interface BasicButtonsProps extends React.ComponentPropsWithoutRef<"div"> {
+interface BasicButtonsProps extends ComponentProps<"div"> {
   btnInfoList: {
     linkUrl: string;
     btnAttr: ButtonOwnProps;

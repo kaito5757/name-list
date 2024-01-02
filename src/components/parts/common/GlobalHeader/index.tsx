@@ -6,9 +6,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { memo } from "react";
+import { ComponentProps, memo } from "react";
 
-interface GlobalHeaderProps extends React.ComponentPropsWithoutRef<"div"> {
+interface GlobalHeaderProps extends ComponentProps<"div"> {
   logoName: string;
   navLinks: nextLinkType[];
 }

@@ -2,9 +2,9 @@ import BasicDialog from "@/components/parts/BasicDialog";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DialogContentText } from "@mui/material";
+import { ComponentProps } from "react";
 
-interface DepartmentDeleteDialogProps
-  extends React.ComponentPropsWithoutRef<"div"> {
+interface DepartmentDeleteDialogProps extends ComponentProps<"div"> {
   departmentData: DepartmentFormSchemaType;
   onDeleteSubmitClick: () => void;
 }

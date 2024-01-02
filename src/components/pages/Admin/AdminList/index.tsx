@@ -1,9 +1,8 @@
-import { ComponentPropsWithRef } from "react";
-import { adminItemType } from "../AdminItem";
 import { Box, SxProps, Theme } from "@mui/material";
-import AdminItem from "../AdminItem";
+import { ComponentProps } from "react";
+import AdminItem, { adminItemType } from "../AdminItem";
 
-interface AdminListProps extends ComponentPropsWithRef<"div"> {
+interface AdminListProps extends ComponentProps<"div"> {
   adminItemAry: adminItemType[];
 }
 

@@ -1,13 +1,13 @@
+import DndBasicTable from "@/components/parts/DndBasicTable";
 import { TeamFormSchemaType } from "@/components/schema/teamFormSchema";
 import { TableCollType, Team, Teams } from "@/types";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import { SxProps, Theme } from "@mui/material";
-import { ComponentPropsWithoutRef, Dispatch, SetStateAction } from "react";
-import TeamUpdateDialog from "../TeamUpdateDialog";
+import { ComponentProps, Dispatch, SetStateAction } from "react";
 import TeamDeleteDialog from "../TeamDeleteDialog";
-import DndBasicTable from "@/components/parts/DndBasicTable";
+import TeamUpdateDialog from "../TeamUpdateDialog";
 
-interface TeamTableProps extends ComponentPropsWithoutRef<"div"> {
+interface TeamTableProps extends ComponentProps<"div"> {
   teams: Teams;
   setTeams: Dispatch<SetStateAction<Teams>>;
   updateOrder: () => void;

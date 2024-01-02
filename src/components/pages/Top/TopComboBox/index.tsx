@@ -1,11 +1,11 @@
+import type { TopComboBoxSelectOption } from "@/types";
 import { SxProps, Theme } from "@mui/material";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import type { TopComboBoxSelectOption } from "@/types";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 
-interface TopComboBoxProps extends React.ComponentPropsWithoutRef<"div"> {
+interface TopComboBoxProps extends ComponentProps<"div"> {
   selectOptions: TopComboBoxSelectOption[];
   placeholderText: string;
   noOptionsText: string;

@@ -1,12 +1,12 @@
-import { nextLinkType } from "@/types";
 import GlobalHeader from "@/components/parts/common/GlobalHeader";
 import GlobalNavigation from "@/components/parts/common/GlobalNavigation";
+import { nextLinkType } from "@/types";
 import { Box, SxProps, Theme } from "@mui/material";
-import BasicSnackbar from "../../BasicSnackbar";
-import { memo } from "react";
+import { ComponentProps, memo } from "react";
 import BasicBackdrop from "../../BasicBackdrop";
+import BasicSnackbar from "../../BasicSnackbar";
 
-interface GlobalLayoutProps extends React.ComponentPropsWithoutRef<"div"> {}
+interface GlobalLayoutProps extends ComponentProps<"div"> {}
 
 type CssTypes = {
   layoutBox: SxProps<Theme>;

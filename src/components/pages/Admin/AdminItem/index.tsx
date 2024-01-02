@@ -1,8 +1,8 @@
-import { Interpolation } from "@emotion/react";
-import { Box, Button, SvgIconTypeMap, SxProps, Theme } from "@mui/material";
-import { Theme as EmotionTheme } from "@emotion/react";
-import Link from "next/link";
+import { Theme as EmotionTheme, Interpolation } from "@emotion/react";
+import { Box, SvgIconTypeMap, SxProps, Theme } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import Link from "next/link";
+import { ComponentProps } from "react";
 
 export type adminItemType = {
   name: string;
@@ -10,7 +10,7 @@ export type adminItemType = {
   icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 };
 
-interface AdminItemProps extends React.ComponentPropsWithoutRef<"div"> {
+interface AdminItemProps extends ComponentProps<"div"> {
   adminItem: adminItemType;
 }
 

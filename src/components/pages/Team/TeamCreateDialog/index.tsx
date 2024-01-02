@@ -2,9 +2,9 @@ import { useTeamForm } from "@/components/hooks/useTeamForm";
 import FormDialog from "@/components/parts/FormDialog";
 import { TeamFormSchemaType } from "@/components/schema/teamFormSchema";
 import { TextField } from "@mui/material";
-import { Fragment } from "react";
+import { ComponentProps, Fragment } from "react";
 
-interface TeamCreateDialogProps extends React.ComponentPropsWithoutRef<"div"> {
+interface TeamCreateDialogProps extends ComponentProps<"div"> {
   createTeamData: (data: TeamFormSchemaType) => void;
 }
 

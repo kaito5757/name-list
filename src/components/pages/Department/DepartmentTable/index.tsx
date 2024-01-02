@@ -3,11 +3,11 @@ import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSche
 import { Department, Departments, TableCollType } from "@/types";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import { SxProps, Theme } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { ComponentProps, Dispatch, SetStateAction } from "react";
 import DepartmentDeleteDialog from "../DepartmentDeleteDialog";
 import DepartmentUpdateDialog from "../DepartmentUpdateDialog";
 
-interface DepartmentTableProps extends React.ComponentPropsWithoutRef<"div"> {
+interface DepartmentTableProps extends ComponentProps<"div"> {
   departments: Departments;
   setDepartments: Dispatch<SetStateAction<Departments>>;
   updateOrder: () => void;

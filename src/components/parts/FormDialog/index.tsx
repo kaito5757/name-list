@@ -5,16 +5,14 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import * as React from "react";
-import { Fragment, useState } from "react";
+import { ComponentProps, Fragment, useState } from "react";
 import {
   FieldValues,
   UseFormHandleSubmit,
   UseFormReset,
 } from "react-hook-form";
 
-interface FormDialogProps<T extends FieldValues>
-  extends React.ComponentPropsWithoutRef<"div"> {
+interface FormDialogProps<T extends FieldValues> extends ComponentProps<"div"> {
   dialogTriggerType: ButtonType | IconType;
   title: string;
   channelButtonText: string;
