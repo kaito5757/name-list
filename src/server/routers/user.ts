@@ -4,19 +4,24 @@ import { z } from "zod";
 
 export const userRouter = router({
   findUserAll: publicProcedure.query(async () => {
-    return await prisma.user.findMany();
+    return await prisma.user.findMany({
+      include: {
+        departments: true,
+        teams: true,
+      }
+    });
   }),
   createUser: publicProcedure
     .input(
       z.object({
-        main_image_url: z.string().url(),
+        main_image_url: z.string(),
         full_name: z.string(),
         full_name_kana: z.string(),
         department_id: z.number(),
         team_id: z.number(),
-        offcial_position: z.string(),
+        official_position: z.string(),
         occupation: z.string(),
-        mail_address: z.string().email(),
+        mail_address: z.string(),
         slack_name: z.string(),
       }),
     )
@@ -50,7 +55,7 @@ export const userRouter = router({
               },
             ],
           },
-          official_position: input.offcial_position,
+          official_position: input.official_position,
           occupation: input.occupation,
           mail_address: input.mail_address,
           slack_name: input.slack_name,
