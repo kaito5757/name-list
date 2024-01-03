@@ -1,7 +1,8 @@
-export * from "./department";
-export * from "./dialog";
-export * from "./link";
-export * from "./team";
+export * from "./common/link";
+export * from "./dialog/dialog";
+export * from "./table/department";
+export * from "./table/team";
+export * from "./table/user";
 
 export type TopComboBoxSelectOption = {
   id: number;
