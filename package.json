@@ -14,7 +14,10 @@
     "test": "jest",
     "postinstall": "prisma generate",
     "migrate-dev": "dotenv -e .env.development.local prisma migrate dev",
-    "migrate-prod": "dotenv -e .env prisma migrate deploy"
+    "migrate-prod": "dotenv -e .env prisma migrate deploy",
+    "supabase-start": "supabase start",
+    "supabase-status": "supabase status",
+    "supabase-stop": "supabase stop"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
