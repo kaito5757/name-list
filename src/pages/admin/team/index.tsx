@@ -58,9 +58,8 @@ export default function Team() {
   });
 
   useEffect(() => {
-    setBackdrop(true);
+    teamsQuery.data ? setBackdrop(false) : setBackdrop(true);
     setTeams(teamsQuery.data);
-    setBackdrop(false);
   }, [teamsQuery.data]);
 
   const updateTeamOrder = () => {

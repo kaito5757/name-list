@@ -70,9 +70,8 @@ export default function Department() {
     });
 
   useEffect(() => {
-    setBackdrop(true);
+    departmentsQuery.data ? setBackdrop(false) : setBackdrop(true);
     setDepartments(departmentsQuery.data);
-    setBackdrop(false);
   }, [departmentsQuery.data]);
 
   const updateDepartmentsOrder = () => {
