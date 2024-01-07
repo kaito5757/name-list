@@ -9,7 +9,6 @@ export const useUserForm = (data?: UserFormSchemaType) => {
     handleSubmit,
     formState: { errors, isDirty },
     reset,
-    control,
   } = useForm<UserFormSchemaType>({
     resolver: zodResolver(userFormSchema),
     mode: "onChange",
@@ -32,6 +31,5 @@ export const useUserForm = (data?: UserFormSchemaType) => {
     errors,
     isDirty,
     reset,
-    control,
   };
 };

@@ -2,7 +2,10 @@ import { useUserForm } from "@/components/hooks/useUserForm";
 import FormDialog from "@/components/parts/FormDialog";
 import { UserFormSchemaType } from "@/components/schema/userFormSchema";
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { ComponentProps, Fragment } from "react";
+import { ChangeEvent, ComponentProps, Fragment, useEffect, useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import { Theme as EmotionTheme } from "@emotion/react";
+import { Interpolation } from "@emotion/serialize";
 
 interface UserCreateDialogProps extends ComponentProps<"div"> {
   createUserData: (data: UserFormSchemaType) => void;
@@ -10,11 +13,39 @@ interface UserCreateDialogProps extends ComponentProps<"div"> {
   teamList: Map<number, string>;
 }
 
+const css: {
+  image: Interpolation<EmotionTheme>
+} = {
+  image: {
+    width: "10rem",
+    height: "10rem",
+    margin: "0.75rem auto",
+    borderRadius: "9999px",
+  },
+}
+
 export default function UserCreateDialog(props: UserCreateDialogProps) {
-  const { register, handleSubmit, errors, reset, control } = useUserForm();
+  const { register, handleSubmit, errors, reset } = useUserForm();
+
+  const [imageData, setImageData] = useState<string | undefined>(undefined);
+
+  const onChangeForImage = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length <= 0) return;
+    const file = files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setImageData(fileReader.result as string);
+    };
+    fileReader.readAsDataURL(file);
+  }
+
+  const resetForm = () => {
+    setImageData(undefined);
+    return reset();
+  };
 
   const formData = (data: UserFormSchemaType) => {
-    console.log(data);
     props.createUserData(data);
   }
 
@@ -26,9 +57,20 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
         channelButtonText="閉じる"
         submitButtonText="追加"
         handleSubmit={handleSubmit}
-        reset={reset}
+        reset={resetForm}
         formData={formData}
       >
+        {
+          imageData && (
+              <Image
+              css={css.image}
+              width={160}
+              height={160}
+              src={imageData}
+              alt="main-image"
+            ></Image>
+          )
+        }
         <TextField
           error={!!errors.main_image}
           helperText={errors.main_image?.message}
@@ -39,6 +81,7 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
           variant="standard"
           focused
           {...register("main_image")}
+          onChange={onChangeForImage}
         />
         <TextField
           error={!!errors.full_name}

@@ -4,6 +4,7 @@ import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
 import { UserFormSchemaType } from "@/components/schema/userFormSchema";
 import { Users } from "@/types";
+import { addMainImage, getMainImageUrl } from "@/utils/supabase/storage";
 import { trpc } from "@/utils/trpc";
 import { Box, SxProps, Theme } from "@mui/material";
 import { AlertColor } from "@mui/material/Alert";
@@ -65,14 +66,16 @@ export default function User() {
   );
 
   useEffect(() => {
+    usersQuery.data ? setBackdrop(false) : setBackdrop(true);
     setUsers(usersQuery.data)
-  }, [usersQuery.data])
+  }, [setBackdrop, usersQuery.data])
 
-  const createUserData = (data: UserFormSchemaType) => {
+  const createUserData = async (data: UserFormSchemaType) => {
     setBackdrop(true);
 
+    const mainImagePath = await addMainImage(data.main_image);
     const variables = {
-      main_image_url: data.main_image.name,
+      main_image_url: mainImagePath,
       full_name: data.full_name,
       full_name_kana: data.full_name_kana,
       department_id: Number(data.department_id),
@@ -81,7 +84,7 @@ export default function User() {
       occupation: data.occupation,
       mail_address: data.mail_address,
       slack_name: data.slack_name,
-    }
+    };
     createUserMutation.mutate(variables);
   }
 
@@ -100,7 +103,7 @@ export default function User() {
             const displayTeams = teamsData?.filter(data => teamIds.includes(data.id));
             return (
               <div key={user.id}>
-                <p>プロフィール画像：{user.main_image_url}</p>
+                <p>プロフィール画像：{getMainImageUrl(user.main_image_url)}</p>
                 <p>名前：{user.full_name}</p>
                 <p>名前(カナ)：{user.full_name_kana}</p>
                 { displayDepartments?.map(depart => (
