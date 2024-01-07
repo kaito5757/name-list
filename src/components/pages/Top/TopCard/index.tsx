@@ -3,7 +3,7 @@ import { itemInfo, userInfo, userItem } from "@/types";
 import { SxProps, Theme } from "@mui/material";
 import Box from "@mui/material/Box";
 import { ComponentProps } from "react";
-import ReftCard from "./LeftCard/index";
+import LeftCard from "./LeftCard/index";
 import RightCard from "./RightCard";
 
 interface TopCardProps extends ComponentProps<"div"> {
@@ -48,7 +48,7 @@ const convertItemList = (userItem: userItem): itemInfo[] => {
 export default function TopCard(props: TopCardProps) {
   return props.userInfo ? (
     <Box component="div" sx={css.box}>
-      <ReftCard
+      <LeftCard
         imageSrc={props.userInfo.profile.image}
         imageAlt={props.userInfo.profile.image}
         fullName={props.userInfo.profile.fullName}
