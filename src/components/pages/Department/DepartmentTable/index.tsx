@@ -1,6 +1,7 @@
 import DndBasicTable from "@/components/parts/DndBasicTable";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import { Department, Departments, TableCollType } from "@/types";
+import { tableHeadThCss } from "@/utils/styles";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import { SxProps, Theme } from "@mui/material";
 import { ComponentProps, Dispatch, SetStateAction } from "react";
@@ -20,7 +21,6 @@ interface DepartmentTableProps extends ComponentProps<"div"> {
 
 const css: {
   dragIcon: SxProps<Theme>;
-  tableHeadTh: SxProps<Theme>;
 } = {
   dragIcon: {
     cursor: "move",
@@ -28,29 +28,22 @@ const css: {
       cursor: "move",
     },
   },
-  tableHeadTh: {
-    fontSize: "0.75rem",
-    lineHeight: "1rem",
-    fontWeight: 500,
-    color: "#6B7280",
-    textTransform: "uppercase",
-  },
 };
 
 export default function DepartmentTable(props: DepartmentTableProps) {
   const tableHeadCollAry: TableCollType[] = [
     {
       collChild: "",
-      collCss: { ...css.tableHeadTh, width: "8.333333%" },
+      collCss: { ...tableHeadThCss, width: "8.333333%" },
     },
     {
       collChild: "部署名",
-      collCss: { ...css.tableHeadTh, width: "75%" },
+      collCss: { ...tableHeadThCss, width: "75%" },
     },
     {
       collChild: "編集",
       collCss: {
-        ...css.tableHeadTh,
+        ...tableHeadThCss,
         width: "8.333333%",
         textAlign: "center",
       },
@@ -58,7 +51,7 @@ export default function DepartmentTable(props: DepartmentTableProps) {
     {
       collChild: "削除",
       collCss: {
-        ...css.tableHeadTh,
+        ...tableHeadThCss,
         width: "8.333333%",
         textAlign: "center",
       },
