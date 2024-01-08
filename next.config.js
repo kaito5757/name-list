@@ -35,6 +35,18 @@ const nextConfig = getConfig({
    * @link https://nextjs.org/docs/pages/api-reference/next-config-js/eslint
    */
   eslint: { ignoreDuringBuilds: !!process.env.CI },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+      },
+      {
+        protocol: "https",
+        hostname: "gyscytdgppdyemodzhfh.supabase.co",
+      },
+    ],
+  },
 });
 
 module.exports = nextConfig;
