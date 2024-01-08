@@ -1,7 +1,6 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { UserFormSchemaType, userFormSchema } from "../schema/userFormSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-
 
 export const useUserForm = (data?: UserFormSchemaType) => {
   const {
@@ -22,7 +21,8 @@ export const useUserForm = (data?: UserFormSchemaType) => {
       occupation: data?.occupation,
       mail_address: data?.mail_address,
       slack_name: data?.slack_name,
-    }
+    },
+    values: data,
   });
 
   return {

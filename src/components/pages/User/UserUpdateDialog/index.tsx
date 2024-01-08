@@ -1,8 +1,11 @@
 import { useUserForm } from "@/components/hooks/useUserForm";
 import FormDialog from "@/components/parts/FormDialog";
 import { UserFormSchemaType } from "@/components/schema/userFormSchema";
+import { User } from "@/types";
 import { fileReader } from "@/utils/file";
 import { mainImageCss } from "@/utils/styles";
+import { getMainImageUrl } from "@/utils/supabase/storage";
+import EditIcon from "@mui/icons-material/Edit";
 import {
   FormControl,
   FormHelperText,
@@ -13,36 +16,56 @@ import {
 } from "@mui/material";
 import { ChangeEvent, ComponentProps, Fragment, useState } from "react";
 
-interface UserCreateDialogProps extends ComponentProps<"div"> {
+interface UserUpdateDialogProps extends ComponentProps<"div"> {
+  userData: User;
   departmentList: Map<number, string>;
   teamList: Map<number, string>;
-  createUserData: (data: UserFormSchemaType) => void;
+  onUpdateSubmitClick: (data: UserFormSchemaType) => void;
 }
 
-export default function UserCreateDialog(props: UserCreateDialogProps) {
-  const { register, handleSubmit, errors, reset } = useUserForm();
-  const [imageData, setImageData] = useState<string | undefined>(undefined);
+export default function UserUpdateDialog(props: UserUpdateDialogProps) {
+  // NOTE:現状では部署、課は、1つしか持たない想定のため、一覧の先頭を取得している。
+  const department = props.userData.departments[0];
+  const team = props.userData.teams[0];
+  const userFormData: UserFormSchemaType = {
+    main_image: new File([], "", { type: "image/png" }),
+    full_name: props.userData.full_name,
+    full_name_kana: props.userData.full_name_kana,
+    department_id: department.department_id,
+    team_id: team.team_id,
+    official_position: props.userData.official_position,
+    occupation: props.userData.occupation,
+    mail_address: props.userData.mail_address,
+    slack_name: props.userData.slack_name,
+  };
+  const mainImageUrl = getMainImageUrl(props.userData.main_image_url);
+
+  const { register, handleSubmit, errors, isDirty, reset } =
+    useUserForm(userFormData);
+  const [imageData, setImageData] = useState<string | undefined>(mainImageUrl);
 
   const onChangeForImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.files && fileReader(e.target.files, setImageData);
   };
 
   const resetForm = () => {
-    setImageData(undefined);
+    setImageData(mainImageUrl);
     return reset();
   };
 
   const formData = (data: UserFormSchemaType) => {
-    props.createUserData(data);
+    if (imageData !== mainImageUrl || isDirty) {
+      props.onUpdateSubmitClick(data);
+    }
   };
 
   return (
     <Fragment>
       <FormDialog<UserFormSchemaType>
-        dialogTriggerType={{ type: "button", text: "社員を追加する" }}
-        title="社員の追加"
+        title="社員の編集"
+        dialogTriggerType={{ type: "icon", icon: EditIcon }}
         channelButtonText="閉じる"
-        submitButtonText="追加"
+        submitButtonText="編集する"
         handleSubmit={handleSubmit}
         reset={resetForm}
         formData={formData}
@@ -71,6 +94,7 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
         <TextField
           error={!!errors.full_name}
           helperText={errors.full_name?.message}
+          autoFocus
           margin="normal"
           label="名前"
           type="text"
@@ -99,10 +123,9 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
           <InputLabel id="department-select-label">部署</InputLabel>
           <Select
             labelId="department-select-label"
-            defaultValue={0}
+            defaultValue={department.department_id}
             {...register("department_id")}
           >
-            <MenuItem value={0}>未選択</MenuItem>
             {Array.from(props.departmentList).map(([id, value]) => (
               <MenuItem value={id} key={id}>
                 {value}
@@ -120,10 +143,9 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
           <InputLabel id="team-select-label">課</InputLabel>
           <Select
             labelId="team-select-label"
-            defaultValue={0}
+            defaultValue={team.team_id}
             {...register("team_id")}
           >
-            <MenuItem value={0}>未選択</MenuItem>
             {Array.from(props.teamList).map(([id, value]) => (
               <MenuItem value={id} key={id}>
                 {value}

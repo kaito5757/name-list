@@ -12,7 +12,7 @@ interface BasicDialogProps extends ComponentProps<"div"> {
   dialogTriggerType: ButtonType | IconType;
   title: string;
   channelButtonText: string;
-  submitButtonText: string;
+  submitButtonText?: string;
   onSubmitClick?: () => void;
 }
 
@@ -49,7 +49,11 @@ export default function BasicDialog(props: BasicDialogProps) {
         <DialogContent>{props.children}</DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>{props.channelButtonText}</Button>
-          <Button onClick={handleSubmitButton}>{props.submitButtonText}</Button>
+          {props.submitButtonText && (
+            <Button onClick={handleSubmitButton}>
+              {props.submitButtonText}
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </Fragment>
