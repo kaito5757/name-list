@@ -1,5 +1,6 @@
 import { adminItemType } from "@/components/pages/Admin/AdminItem";
 import AdminList from "@/components/pages/Admin/AdminList";
+import ReturnTopButton from "@/components/parts/BasicButtons/ReturnTopButton";
 import Diversity3Icon from "@mui/icons-material/Diversity3";
 import GroupIcon from "@mui/icons-material/Group";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -23,5 +24,10 @@ const adminList: adminItemType[] = [
 ];
 
 export default function Admin() {
-  return <AdminList adminItemAry={adminList} />;
+  return (
+    <>
+      <AdminList adminItemAry={adminList} />
+      <ReturnTopButton />
+    </>
+  )
 }

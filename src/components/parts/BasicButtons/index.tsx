@@ -32,7 +32,7 @@ export default function BasicButtons(props: BasicButtonsProps) {
       {props.btnInfoList.map((btnInfo, index) => (
         <Link href={btnInfo.linkUrl} key={index}>
           <Button {...btnInfo.btnAttr} sx={css.button}>
-            管理画面に戻る
+            { btnInfo.btnAttr.children }
           </Button>
         </Link>
       ))}
