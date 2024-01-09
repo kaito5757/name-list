@@ -45,7 +45,7 @@ export default memo(function GlobalHeader(props: GlobalHeaderProps) {
     <Box component="div" sx={css.box}>
       <AppBar position="static">
         <Toolbar>
-          <Link href="/" data-testid="logoIconLink">
+          <Link href="/" data-testid="logoIconLink" aria-label="homeIcon">
             <AdbIcon sx={css.adbIcon} />
           </Link>
           <Typography variant="h6" sx={css.typography}>

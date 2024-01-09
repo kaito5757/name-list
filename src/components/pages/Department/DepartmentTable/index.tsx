@@ -27,14 +27,15 @@ const css: {
     ":active": {
       cursor: "move",
     },
+    textAlign: "center"
   },
 };
 
 export default function DepartmentTable(props: DepartmentTableProps) {
   const tableHeadCollAry: TableCollType[] = [
     {
-      collChild: "",
-      collCss: { ...tableHeadThCss, width: "8.333333%" },
+      collChild: "並替",
+      collCss: { ...tableHeadThCss, width: "10%", textAlign: "center", },
     },
     {
       collChild: "部署名",

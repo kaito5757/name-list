@@ -24,6 +24,7 @@ const css: {
     ":active": {
       cursor: "move",
     },
+    textAlign: "center"
   },
   tableHeadTh: {
     fontSize: "0.75rem",
@@ -37,8 +38,8 @@ const css: {
 export default function TeamTable(props: TeamTableProps) {
   const tableHeadCollAry: TableCollType[] = [
     {
-      collChild: "",
-      collCss: { ...css.tableHeadTh, width: "8.333333%" },
+      collChild: "並替",
+      collCss: { ...css.tableHeadTh, width: "10%", textAlign: "center" },
     },
     {
       collChild: "課名",

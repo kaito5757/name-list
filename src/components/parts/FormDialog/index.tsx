@@ -45,11 +45,11 @@ export default function FormDialog<T extends FieldValues>(
     <Fragment>
       {props.dialogTriggerType.type === "button" && (
         <Button variant="outlined" onClick={handleClickOpen}>
-          {props.dialogTriggerType.text}
+          { props.dialogTriggerType.text }
         </Button>
       )}
       {props.dialogTriggerType.type === "icon" && (
-        <IconButton onClick={handleClickOpen}>
+        <IconButton onClick={handleClickOpen} aria-label="icon">
           <props.dialogTriggerType.icon />
         </IconButton>
       )}

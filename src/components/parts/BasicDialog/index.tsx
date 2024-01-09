@@ -40,7 +40,7 @@ export default function BasicDialog(props: BasicDialogProps) {
         </Button>
       )}
       {props.dialogTriggerType.type === "icon" && (
-        <IconButton onClick={handleClickOpen}>
+        <IconButton onClick={handleClickOpen} aria-label="icon">
           <props.dialogTriggerType.icon />
         </IconButton>
       )}
