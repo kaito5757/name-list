@@ -3,6 +3,7 @@ import DepartmentTable from "@/components/pages/Department/DepartmentTable";
 import { useBasicBackdropStore } from "@/components/parts/BasicBackdrop";
 import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton";
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
+import Meta from "@/components/parts/Meta";
 import { DepartmentFormSchemaType } from "@/components/schema/departmentFormSchema";
 import { Departments } from "@/types";
 import { trpc } from "@/utils/trpc";
@@ -98,18 +99,21 @@ export default function Department() {
   };
 
   return (
-    <Box component="div" sx={css.departmentContainer}>
-      <Box component="div" sx={css.departmentRow}>
-        <DepartmentCreateDialog createDepartmentData={createDepartmentData} />
-        <DepartmentTable
-          departments={departments}
-          setDepartments={setDepartments}
-          updateOrder={updateDepartmentsOrder}
-          updateDepartmentData={updateDepartmentData}
-          deleteDepartmentData={deleteDepartmentData}
-        />
-        <ReturnAdminButton />
+    <>
+      <Meta title="部署管理" url="/admin/department" />
+      <Box component="div" sx={css.departmentContainer}>
+        <Box component="div" sx={css.departmentRow}>
+          <DepartmentCreateDialog createDepartmentData={createDepartmentData} />
+          <DepartmentTable
+            departments={departments}
+            setDepartments={setDepartments}
+            updateOrder={updateDepartmentsOrder}
+            updateDepartmentData={updateDepartmentData}
+            deleteDepartmentData={deleteDepartmentData}
+          />
+          <ReturnAdminButton />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

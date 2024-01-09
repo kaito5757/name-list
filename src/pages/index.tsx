@@ -1,5 +1,6 @@
 import TopCard from "@/components/pages/Top/TopCard";
 import TopComboBox from "@/components/pages/Top/TopComboBox";
+import Meta from "@/components/parts/Meta";
 import type { TopComboBoxSelectOption, userInfo } from "@/types";
 import { Box } from "@mui/material";
 import { useState } from "react";
@@ -248,14 +249,17 @@ export default function Home() {
   };
 
   return (
-    <Box component="div">
-      <TopComboBox
-        selectOptions={topComboBoxSelectOptions}
-        placeholderText="名前（漢字, カナ）、部署名、チーム名をで検索可能"
-        noOptionsText="存在しません"
-        handleChange={handleChange}
-      />
-      <TopCard userInfo={userInfoList.find((info) => info.id == id)} />
-    </Box>
+    <>
+      <Meta title="Home" url="/" />
+      <Box component="div">
+        <TopComboBox
+          selectOptions={topComboBoxSelectOptions}
+          placeholderText="名前（漢字, カナ）、部署名、チーム名をで検索可能"
+          noOptionsText="存在しません"
+          handleChange={handleChange}
+        />
+        <TopCard userInfo={userInfoList.find((info) => info.id == id)} />
+      </Box>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import TeamTable from "@/components/pages/Team/TeamTable";
 import { useBasicBackdropStore } from "@/components/parts/BasicBackdrop";
 import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton";
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
+import Meta from "@/components/parts/Meta";
 import { TeamFormSchemaType } from "@/components/schema/teamFormSchema";
 import { Teams } from "@/types";
 import { trpc } from "@/utils/trpc";
@@ -83,18 +84,21 @@ export default function Team() {
   };
 
   return (
-    <Box component="div" sx={css.teamContainer}>
-      <Box component="div" sx={css.teamRow}>
-        <TeamCreateDialog createTeamData={createTeamData} />
-        <TeamTable
-          teams={teams}
-          setTeams={setTeams}
-          updateOrder={updateTeamOrder}
-          updateTeamData={updateTeamData}
-          deleteTeamData={deleteTeamData}
-        />
-        <ReturnAdminButton />
+    <>
+      <Meta title="課管理" url="/admin/team" />
+      <Box component="div" sx={css.teamContainer}>
+        <Box component="div" sx={css.teamRow}>
+          <TeamCreateDialog createTeamData={createTeamData} />
+          <TeamTable
+            teams={teams}
+            setTeams={setTeams}
+            updateOrder={updateTeamOrder}
+            updateTeamData={updateTeamData}
+            deleteTeamData={deleteTeamData}
+          />
+          <ReturnAdminButton />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

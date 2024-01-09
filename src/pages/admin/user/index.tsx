@@ -3,6 +3,7 @@ import UserTable from "@/components/pages/User/UserTable";
 import { useBasicBackdropStore } from "@/components/parts/BasicBackdrop";
 import ReturnAdminButton from "@/components/parts/BasicButtons/ReturnAdminButton";
 import { useBasicSnackbarStore } from "@/components/parts/BasicSnackbar";
+import Meta from "@/components/parts/Meta";
 import { UserFormSchemaType } from "@/components/schema/userFormSchema";
 import { Users } from "@/types";
 import {
@@ -151,22 +152,25 @@ export default function User() {
   };
 
   return (
-    <Box component="div" sx={css.userContainer}>
-      <Box component="div" sx={css.userRow}>
-        <UserCreateDialog
-          createUserData={createUserData}
-          departmentList={departmentList}
-          teamList={teamList}
-        />
-        <UserTable
-          users={users}
-          departmentList={departmentList}
-          teamList={teamList}
-          updateUserData={updateUserData}
-          deleteUserData={deleteUserData}
-        />
-        <ReturnAdminButton />
+    <>
+      <Meta title="社員管理" url="/admin/user" />
+      <Box component="div" sx={css.userContainer}>
+        <Box component="div" sx={css.userRow}>
+          <UserCreateDialog
+            createUserData={createUserData}
+            departmentList={departmentList}
+            teamList={teamList}
+          />
+          <UserTable
+            users={users}
+            departmentList={departmentList}
+            teamList={teamList}
+            updateUserData={updateUserData}
+            deleteUserData={deleteUserData}
+          />
+          <ReturnAdminButton />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
