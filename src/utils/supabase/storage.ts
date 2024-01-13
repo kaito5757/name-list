@@ -2,8 +2,8 @@ import { supabase } from "./supabase";
 
 const MAIN_IMAGE_BUCKET_NAME = "pictures";
 
-export const getMainImageUrl = (filePath: string): string => {
-  return getFileUrl(MAIN_IMAGE_BUCKET_NAME, filePath);
+export const getMainImageUrl = (filePath: string, updated_at: string): string => {
+  return `${getFileUrl(MAIN_IMAGE_BUCKET_NAME, filePath)}?at=${updated_at}`;
 };
 
 export const addMainImage = async (file: File): Promise<string> => {

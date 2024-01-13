@@ -12,6 +12,7 @@ import {
   TextField,
 } from "@mui/material";
 import { ChangeEvent, ComponentProps, Fragment, useState } from "react";
+import Image from "next/image"
 
 interface UserCreateDialogProps extends ComponentProps<"div"> {
   departmentList: Map<number, string>;
@@ -48,7 +49,7 @@ export default function UserCreateDialog(props: UserCreateDialogProps) {
         formData={formData}
       >
         {imageData && (
-          <img
+          <Image
             css={mainImageCss}
             width={160}
             height={160}

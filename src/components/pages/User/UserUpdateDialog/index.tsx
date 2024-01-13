@@ -38,7 +38,7 @@ export default function UserUpdateDialog(props: UserUpdateDialogProps) {
     mail_address: props.userData.mail_address,
     slack_name: props.userData.slack_name,
   };
-  const mainImageUrl = getMainImageUrl(props.userData.main_image_url);
+  const mainImageUrl = getMainImageUrl(props.userData.main_image_url, props.userData.updated_at.toISOString());
 
   const { register, handleSubmit, errors, isDirty, reset } =
     useUserForm(userFormData);

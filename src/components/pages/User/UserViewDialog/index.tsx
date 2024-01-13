@@ -25,7 +25,7 @@ export default function UserViewDialog(props: UserViewDialogProps) {
         css={mainImageCss}
         width={160}
         height={160}
-        src={getMainImageUrl(props.userData.main_image_url)}
+        src={getMainImageUrl(props.userData.main_image_url, props.userData.updated_at.toISOString())}
         alt="main-image"
       />
       <TextField
