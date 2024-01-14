@@ -39,6 +39,7 @@ export default function FormDialog<T extends FieldValues>(
   const onSubmit = props.handleSubmit((data: T) => {
     props.formData(data);
     handleClose();
+    props.reset();
   });
 
   return (
