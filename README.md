@@ -4,7 +4,7 @@ https://name-list.vercel.app
 
 ### 進捗
 
-40%
+70%
 
 ### 特徴
 
@@ -16,11 +16,11 @@ https://name-list.vercel.app
 
 ### 技術スタック
 
-- 言語:TypeScript
-- フレームワーク:Next.js
+- 言語: TypeScript
+- フレームワーク: Next.js
 - UIコンポーネントライブラリ: MUI
 - CSS-in-JS: Emotion
-- データベース: supabase
+- BaaS: supabase
 - 静的解析ツール: ESLint
 - コードフォーマッター: Prettier
 - ORM: Prisma
