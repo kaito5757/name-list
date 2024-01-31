@@ -10,12 +10,10 @@ interface TopCardProps extends ComponentProps<"div"> {
   userInfo: userInfo | undefined;
 }
 
-type CssTypes = {
+const css: {
   box: SxProps<Theme>;
   emptyBox: SxProps<Theme>;
-};
-
-const css: CssTypes = {
+} = {
   box: {
     display: "flex",
     alignItems: "center",
