@@ -43,13 +43,17 @@ export default function User() {
   const departmentsData = trpc.department.getAllDepartments.useQuery().data;
   const departmentList = new Map<number, string>();
   if (departmentsData) {
-    departmentsData.forEach((data) => departmentList.set(data.id, data.name));
+    departmentsData.forEach((data: { id: number; name: string }) =>
+      departmentList.set(data.id, data.name),
+    );
   }
 
   const teamsData = trpc.team.getAllTeams.useQuery().data;
   const teamList = new Map<number, string>();
   if (teamsData) {
-    teamsData.forEach((data) => teamList.set(data.id, data.name));
+    teamsData.forEach((data: { id: number; name: string }) =>
+      teamList.set(data.id, data.name),
+    );
   }
 
   const usersQuery = trpc.user.findUserAll.useQuery();
